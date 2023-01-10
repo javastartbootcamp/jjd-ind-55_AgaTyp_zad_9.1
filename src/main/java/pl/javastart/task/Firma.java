@@ -23,17 +23,13 @@ public class Firma {
         System.out.printf("Forma opodatkowania: %s\n", formaOpodatkowania.opodatkowanieInfo());
         System.out.printf("Suma przychodów: %.2f zł\n", sumaPrzychodow);
         System.out.printf("Suma wydatków: %.2f zł\n", zsumujWydatki());
-        if (formaOpodatkowania instanceof PodatekLiniowy || formaOpodatkowania instanceof SkalaPodatkowa) {
-            System.out.printf("Podatek do zapłacenia: %.2f zł", formaOpodatkowania.wyliczPodatek(obliczDochod()));
-        } else {
-            System.out.printf("Podatek do zapłacenia: %.2f zł", formaOpodatkowania.wyliczPodatek(sumaPrzychodow));
-        }
+        System.out.printf("Podatek do zapłacenia: %.2f zł", formaOpodatkowania.wyliczPodatek(sumaPrzychodow, zsumujWydatki()));
         System.out.print("\n\n");
     }
 
     private double zsumujWydatki() {
         double sumaWydatkow = 0;
-        for (double wydatek: wydatki) {
+        for (double wydatek : wydatki) {
             sumaWydatkow += wydatek;
         }
         return sumaWydatkow;
@@ -41,7 +37,7 @@ public class Firma {
 
     private double zsumujPrzychody() {
         double sumaPrzychodow = 0;
-        for (double przychod: przychody) {
+        for (double przychod : przychody) {
             sumaPrzychodow += przychod;
         }
         return sumaPrzychodow;
@@ -67,7 +63,4 @@ public class Firma {
         }
     }
 
-    private double obliczDochod() {
-        return zsumujPrzychody() - zsumujWydatki();
-    }
 }

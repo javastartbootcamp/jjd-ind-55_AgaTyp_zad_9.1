@@ -5,7 +5,8 @@ public class SkalaPodatkowa extends FormaOpodatkowania {
     private static final double DRUGI_PROG = 100_000;
 
     @Override
-    public double wyliczPodatek(double dochod) {
+    public double wyliczPodatek(double przychody, double wydatki) {
+        double dochod = przychody - wydatki;
         if (dochod - PIERWSZY_PROG <= 0) {
             return 0;
         } else if (dochod - DRUGI_PROG <= 0) {
