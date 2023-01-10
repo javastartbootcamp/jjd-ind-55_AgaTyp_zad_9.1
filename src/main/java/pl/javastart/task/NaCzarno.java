@@ -7,4 +7,9 @@ public class NaCzarno extends FormaOpodatkowania {
     public double wyliczPodatek(double przychody) {
         return 0;
     }
+
+    @Override
+    public String opodatkowanieInfo() {
+        return "Na Czarno";
+    }
 }

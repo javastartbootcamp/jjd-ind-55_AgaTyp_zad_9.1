@@ -6,4 +6,9 @@ public class RyczaltEwidencjonowany extends FormaOpodatkowania {
     public double wyliczPodatek(double przychody) {
         return przychody * 0.15;
     }
+
+    @Override
+    public String opodatkowanieInfo() {
+        return "Ryczałt ewidencjonowany";
+    }
 }
